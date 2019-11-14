@@ -414,6 +414,7 @@ func executeBuild(w docker.LogWriter, dockerClient docker.Client, buildPackageDi
 		RawJSONStream:       true,
 		Dockerfile:          dockerFileName, // Required for .dockerignore to work
 		ContextDir:          buildPackageDirectory,
+		NetworkMode:         "none",
 	})
 	if err != nil {
 		return "", rpc.BuildError{Err: err.Error()}
